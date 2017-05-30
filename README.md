@@ -8,7 +8,7 @@ I thought it might make a fun little project to explore the weather we've both e
 Retrieving the Data
 ===================
 
-Here's the code I used to get the data originally, using \[@hrbrmstr\](<https://twitter.com/hrbrmstr>)'s super handy Dark Sky API wrapper for R. I retrieved the hourly forecast for both places, starting on August 1st, 2015 (about the time we moved) up to May 1st, 2017. Latitude and longitude I retrieved manually via Google Maps, centered on the main buildings for our respective departments (Music for her, Psychology for me).
+Here's the code I used to get the data originally, using (@hrbrmstr)[<https://twitter.com/hrbrmstr>]'s super handy Dark Sky API wrapper for R. I retrieved the hourly forecast for both places, starting on August 1st, 2015 (about the time we moved) up to May 1st, 2017. Latitude and longitude I retrieved manually via Google Maps, centered on the main buildings for our respective departments (Music for her, Psychology for me).
 
 ``` r
 suppressPackageStartupMessages({
@@ -252,6 +252,6 @@ Our climates are fairly similar during the summer, although Urbana runs hotter o
 
 So there you have it. Urbana is wetter, hotter, and windier; Boulder is snowier. To butcher Tolstoy, all temperate climates are alike; all intemperate climates are intemperate in their own way.
 
-==================
+---
 
 [Powered by Dark Sky](https://darksky.net/poweredby/)
