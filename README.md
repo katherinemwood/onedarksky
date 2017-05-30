@@ -251,3 +251,6 @@ print(diff_plot)
 Our climates are fairly similar during the summer, although Urbana runs hotter overall. Things vary pretty wildly in the winter and spring, though, with positive *and* negative differences of up to almost 60 degrees at some points!
 
 So there you have it. Urbana is wetter, hotter, and windier; Boulder is snowier. To butcher Tolstoy, all temperate climates are alike; all intemperate climates are intemperate in their own way.
+
+==================
+[Powered by Dark Sky](https://darksky.net/poweredby/)
