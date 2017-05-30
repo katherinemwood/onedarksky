@@ -253,4 +253,5 @@ Our climates are fairly similar during the summer, although Urbana runs hotter o
 So there you have it. Urbana is wetter, hotter, and windier; Boulder is snowier. To butcher Tolstoy, all temperate climates are alike; all intemperate climates are intemperate in their own way.
 
 ==================
+
 [Powered by Dark Sky](https://darksky.net/poweredby/)
