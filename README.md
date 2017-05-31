@@ -8,7 +8,7 @@ I thought it might make a fun little project to explore the weather we've both e
 Retrieving the Data
 ===================
 
-Here's the code I used to get the data originally, using (@hrbrmstr)[<https://twitter.com/hrbrmstr>]'s super handy Dark Sky API wrapper for R. I retrieved the hourly forecast for both places, starting on August 1st, 2015 (about the time we moved) up to May 1st, 2017. Latitude and longitude I retrieved manually via Google Maps, centered on the main buildings for our respective departments (Music for her, Psychology for me).
+Here's the code I used to get the data originally, using \[@hrbrmstr\](<https://twitter.com/hrbrmstr>)'s super handy Dark Sky API wrapper for R. I retrieved the hourly forecast for both places, starting on August 1st, 2015 (about the time we moved) up to May 1st, 2017. Latitude and longitude I retrieved manually via Google Maps, centered on the main buildings for our respective departments (Music for her, Psychology for me).
 
 ``` r
 suppressPackageStartupMessages({
@@ -60,6 +60,25 @@ seasons <- data.frame('start'=as.POSIXct(c('2015-8-1', '2015-9-1', '2015-12-1',
                                             ordered=TRUE))
 ```
 
+And here's a peek at the data:
+
+``` r
+knitr::kable(head(weather))
+```
+
+| place   | time                | day        | hour     | summary | icon        |  precipIntensity|  precipProbability|  temperature|  apparentTemperature|  dewPoint|  humidity|  windSpeed|  windBearing|  visibility|  cloudCover|  pressure| precipType |  precipAccumulation|
+|:--------|:--------------------|:-----------|:---------|:--------|:------------|----------------:|------------------:|------------:|--------------------:|---------:|---------:|----------:|------------:|-----------:|-----------:|---------:|:-----------|-------------------:|
+| Boulder | 2015-08-01 01:00:00 | 2015-08-01 | 01:00:00 | Clear   | clear-night |                0|                  0|        64.98|                64.98|     49.19|      0.57|       5.64|          186|       10.00|        0.06|   1016.60| NA         |                  NA|
+| Boulder | 2015-08-01 02:00:00 | 2015-08-01 | 02:00:00 | Clear   | clear-night |                0|                  0|        61.97|                61.97|     49.81|      0.64|       2.31|          235|        9.69|        0.03|   1016.17| NA         |                  NA|
+| Boulder | 2015-08-01 03:00:00 | 2015-08-01 | 03:00:00 | Clear   | clear-night |                0|                  0|        62.38|                62.38|     48.84|      0.61|       2.71|          205|       10.00|        0.03|   1015.50| NA         |                  NA|
+| Boulder | 2015-08-01 04:00:00 | 2015-08-01 | 04:00:00 | Clear   | clear-night |                0|                  0|        61.98|                61.98|     49.11|      0.63|       1.62|          191|        9.69|        0.03|   1014.96| NA         |                  NA|
+| Boulder | 2015-08-01 05:00:00 | 2015-08-01 | 05:00:00 | Clear   | clear-night |                0|                  0|        59.58|                59.58|     49.03|      0.68|       1.98|          183|       10.00|        0.03|   1014.90| NA         |                  NA|
+| Boulder | 2015-08-01 06:00:00 | 2015-08-01 | 06:00:00 | Clear   | clear-night |                0|                  0|        59.62|                59.62|     50.22|      0.71|       2.19|          164|        9.69|        0.03|   1014.64| NA         |                  NA|
+
+The API actually gives you three things: the `currently` forecast, a `daily` forecast, and the `hourly` forecasts. I wanted hourly for this.
+
+We also get a bunch of variables to explore.
+
 Rain or Shine
 =============
 
@@ -87,7 +106,7 @@ tiles <- ggplot(data=weather) +
 print(tiles)
 ```
 
-![](darksky_files/figure-markdown_github/unnamed-chunk-4-1.png)
+![](darksky_files/figure-markdown_github/unnamed-chunk-5-1.png)
 
 We both get about the same amount of clear hours. My plot has a lot more blue, orange, and yellow--clouds, rain, and wind--while little sister's has a lot more green (snow), although she also gets a lot of cloudy nights. This also reveals the changing daylight hours as the year progresses, which is kind of neat. You can see them get longer and shorter as the seasons change.
 
@@ -122,7 +141,7 @@ snow_plot <- ggplot() +
 print(snow_plot)
 ```
 
-![](darksky_files/figure-markdown_github/unnamed-chunk-5-1.png)
+![](darksky_files/figure-markdown_github/unnamed-chunk-6-1.png)
 
 Okay, little sister definitely had it worse than I did in terms of snowfall.
 
@@ -144,7 +163,7 @@ total_snow <- ggplot(data=group_by(snowheight, place, height) %>%
 print(total_snow)
 ```
 
-![](darksky_files/figure-markdown_github/unnamed-chunk-6-1.png)
+![](darksky_files/figure-markdown_github/unnamed-chunk-7-1.png)
 
 Little sister is buried! Her snow would go over her head, but all of my snow doesn't even reach my knees. For reference, Boulder averages about 89 inches of snow a year, while Urbana averages about 21.
 
@@ -168,7 +187,7 @@ wind <- ggplot() +
 print(wind)
 ```
 
-![](darksky_files/figure-markdown_github/unnamed-chunk-7-1.png)
+![](darksky_files/figure-markdown_github/unnamed-chunk-8-1.png)
 
 It's much windier in Urbana--not a lot of overlap in these plots. It is worth noting that the winds pick up in Urbana during the winter and early spring months (green and blue), aka the worst possible time for them to do so.
 
@@ -190,7 +209,7 @@ humidity <- ggplot() +
 print(humidity)
 ```
 
-![](darksky_files/figure-markdown_github/unnamed-chunk-8-1.png)
+![](darksky_files/figure-markdown_github/unnamed-chunk-9-1.png)
 
 No contest. Urbana is more humid, hands-down. By quite a lot, too, especially in late summer (when humidity's misery-inducing powers are at their peak).
 
@@ -219,7 +238,7 @@ running_temps <- ggplot() +
 print(running_temps)
 ```
 
-![](darksky_files/figure-markdown_github/unnamed-chunk-9-1.png)
+![](darksky_files/figure-markdown_github/unnamed-chunk-10-1.png)
 
 Let the record reflect that Urbana suffers worse extremes, both for cold and heat (but particularly heat).
 
@@ -246,12 +265,12 @@ diff_plot <- ggplot(data=td, aes(x=time, y=diff_f, color=diff_f)) +
 print(diff_plot)
 ```
 
-![](darksky_files/figure-markdown_github/unnamed-chunk-10-1.png)
+![](darksky_files/figure-markdown_github/unnamed-chunk-11-1.png)
 
 Our climates are fairly similar during the summer, although Urbana runs hotter overall. Things vary pretty wildly in the winter and spring, though, with positive *and* negative differences of up to almost 60 degrees at some points!
 
 So there you have it. Urbana is wetter, hotter, and windier; Boulder is snowier. To butcher Tolstoy, all temperate climates are alike; all intemperate climates are intemperate in their own way.
 
----
+------------------------------------------------------------------------
 
 [Powered by Dark Sky](https://darksky.net/poweredby/)
