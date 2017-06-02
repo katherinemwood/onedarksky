@@ -106,7 +106,7 @@ tiles <- ggplot(data=weather) +
 print(tiles)
 ```
 
-![](darksky_files/figure-markdown_github/unnamed-chunk-5-1.png)
+![](darksky_files/figure-markdown_github/unnamed-chunk-4-1.png)
 
 We both get about the same amount of clear hours. My plot has a lot more blue, orange, and yellow--clouds, rain, and wind--while little sister's has a lot more green (snow), although she also gets a lot of cloudy nights. This also reveals the changing daylight hours as the year progresses, which is kind of neat. You can see them get longer and shorter as the seasons change.
 
@@ -141,7 +141,7 @@ snow_plot <- ggplot() +
 print(snow_plot)
 ```
 
-![](darksky_files/figure-markdown_github/unnamed-chunk-6-1.png)
+![](darksky_files/figure-markdown_github/unnamed-chunk-5-1.png)
 
 Okay, little sister definitely had it worse than I did in terms of snowfall.
 
@@ -163,7 +163,7 @@ total_snow <- ggplot(data=group_by(snowheight, place, height) %>%
 print(total_snow)
 ```
 
-![](darksky_files/figure-markdown_github/unnamed-chunk-7-1.png)
+![](darksky_files/figure-markdown_github/unnamed-chunk-6-1.png)
 
 Little sister is buried! Her snow would go over her head, but all of my snow doesn't even reach my knees. For reference, Boulder averages about 89 inches of snow a year, while Urbana averages about 21.
 
@@ -187,7 +187,7 @@ wind <- ggplot() +
 print(wind)
 ```
 
-![](darksky_files/figure-markdown_github/unnamed-chunk-8-1.png)
+![](darksky_files/figure-markdown_github/unnamed-chunk-7-1.png)
 
 It's much windier in Urbana--not a lot of overlap in these plots. It is worth noting that the winds pick up in Urbana during the winter and early spring months (green and blue), aka the worst possible time for them to do so.
 
@@ -209,7 +209,7 @@ humidity <- ggplot() +
 print(humidity)
 ```
 
-![](darksky_files/figure-markdown_github/unnamed-chunk-9-1.png)
+![](darksky_files/figure-markdown_github/unnamed-chunk-8-1.png)
 
 No contest. Urbana is more humid, hands-down. By quite a lot, too, especially in late summer (when humidity's misery-inducing powers are at their peak).
 
@@ -238,7 +238,7 @@ running_temps <- ggplot() +
 print(running_temps)
 ```
 
-![](darksky_files/figure-markdown_github/unnamed-chunk-10-1.png)
+![](darksky_files/figure-markdown_github/unnamed-chunk-9-1.png)
 
 Let the record reflect that Urbana suffers worse extremes, both for cold and heat (but particularly heat).
 
@@ -265,7 +265,7 @@ diff_plot <- ggplot(data=td, aes(x=time, y=diff_f, color=diff_f)) +
 print(diff_plot)
 ```
 
-![](darksky_files/figure-markdown_github/unnamed-chunk-11-1.png)
+![](darksky_files/figure-markdown_github/unnamed-chunk-10-1.png)
 
 Our climates are fairly similar during the summer, although Urbana runs hotter overall. Things vary pretty wildly in the winter and spring, though, with positive *and* negative differences of up to almost 60 degrees at some points!
 
